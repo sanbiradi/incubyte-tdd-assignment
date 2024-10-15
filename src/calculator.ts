@@ -9,8 +9,15 @@ export class Calculator {
       numbers = numbers.substring(delimiterEnd + 1);
     }
   
-    const nums = numbers.split(delimiter);
-    return nums.map(Number).reduce((a, b) => a + b, 0);
+    const nums = numbers.split(delimiter).map(Number);
+    const negatives = nums.filter(n => n < 0);
+  
+    if (negatives.length > 0) {
+      throw new Error(`negative numbers not allowed: ${negatives.join(', ')}`);
+    }
+  
+    return nums.reduce((a, b) => a + b, 0);
   }
+    
    
 }
