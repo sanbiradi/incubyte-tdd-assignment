@@ -4,4 +4,3 @@ export class Calculator {
       return 0;
     }
   }
-  
